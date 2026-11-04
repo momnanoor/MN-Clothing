@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MN Clothing</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+
+        <div class="container navbar">
+
+            <!-- Website Logo / Brand Name -->
+            <a href="index.html" class="logo">MN CLOTHING</a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="#women-products" id="navWomen">Women</a>
+               <a href="#women-products" id="navMen">Men</a>
+               <a href="#women-products" id="navNewArrivals">New Arrivals</a>
+                <a href="#">Sale</a>
+            </nav>
+
+            <!-- Navbar Actions -->
+            <div class="nav-actions">
+
+                <button class="nav-icon" id="searchBtn" aria-label="Search">
+                     🔍
+                </button>
+
+                <a href="wishlist.html" class="nav-icon" aria-label="Wishlist">
+                     ♡
+                </a>
+
+                <a href="cart.html" class="nav-icon cart-link" aria-label="Shopping Cart">
+                   🛒
+                <span id="cartCount">0</span>
+</a>
+
+                <button class="nav-icon" aria-label="Account">
+                    👤
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+<!-- Hero Section -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-subtitle">NEW SEASON COLLECTION</p>
+
+        <h1>Style That Defines You</h1>
+
+        <p class="hero-description">
+            Discover timeless fashion and elevate your everyday style
+            with MN Clothing.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#women-products" class="btn btn-primary"
+               onclick="document.getElementById('navWomen').click()">
+                SHOP WOMEN
+            </a>
+
+            <a href="#women-products" class="btn btn-secondary"
+               onclick="document.getElementById('navMen').click()">
+                SHOP MEN
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Shop By Category -->
+<section class="categories-section" id="women">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="section-subtitle">EXPLORE OUR COLLECTION</p>
+
+            <h2>Shop by Category</h2>
+
+        </div>
+
+        <div class="category-grid">
+
+            <!-- Women Category -->
+            <a href="#women-products" class="category-card"
+               onclick="document.getElementById('navWomen').click()">
+
+                <img src="images/women.jpg" alt="Women's Clothing">
+
+                <div class="category-overlay">
+                    <h3>Women</h3>
+                    <span>Shop Now →</span>
+                </div>
+
+            </a>
+
+
+            <!-- Men Category -->
+            <a href="#women-products" class="category-card"
+               onclick="document.getElementById('navMen').click()">
+
+                <img src="images/men.jpg" alt="Men's Clothing">
+
+                <div class="category-overlay">
+                    <h3>Men</h3>
+                    <span>Shop Now →</span>
+                </div>
+
+            </a>
+
+
+            <!-- New Arrivals Category -->
+            <a href="#women-products" class="category-card"
+               onclick="document.getElementById('navNewArrivals').click()">
+
+                <img src="images/new-arrivals.jpg" alt="New Arrivals">
+
+                <div class="category-overlay">
+                    <h3>New Arrivals</h3>
+                    <span>Shop Now →</span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Featured Products -->
+<section class="products-section" id="women-products">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-subtitle">OUR SELECTION</p>
+            <h2>Featured Products</h2>
+        </div>
+
+        <div class="product-grid">
+
+            <!-- Product 1 -->
+           <a href="product.html?product=1" class="product-card">
+
+                <div class="product-image">
+                    <img src="images/product1.jpg" alt="Women's Suit">
+
+                    <button class="wishlist-btn">♡</button>
+                </div>
+
+                <div class="product-info">
+                   <p class="product-category">Traditional Wear</p>
+                   <h3>Elegant Traditional Outfit</h3>
+                   <p class="product-price">Rs. 4,999</p>
+                
+                </div>
+
+            </a>
+
+
+            <!-- Product 2 -->
+            <a href="product.html?product=2" class="product-card">
+
+                <div class="product-image">
+                    <img src="images/product2.jpg" alt="Men's Kurta">
+
+                    <button class="wishlist-btn">♡</button>
+                </div>
+
+                <div class="product-info">
+                    <p class="product-category">Women</p>
+                    <h3>Embroidered Women's Outfit</h3>
+                    <p class="product-price">Rs. 5,499</p>
+                    
+                </div>
+
+            </a>
+
+
+            <!-- Product 3 -->
+           <a href="product.html?product=3" class="product-card">
+
+                <div class="product-image">
+                    <img src="images/product3.jpg" alt="Women's Kurti">
+
+                    <button class="wishlist-btn">♡</button>
+                </div>
+
+                <div class="product-info">
+                  <p class="product-category">Men</p>
+                  <h3>Premium Formal Suit</h3>
+                  <p class="product-price">Rs. 3,999</p>
+                
+                </div>
+
+            </a>
+
+            <!-- Product 4 -->
+            <a href="product.html?product=4" class="product-card">
+
+                <div class="product-image">
+                    <img src="images/product4.jpg" alt="Men's Outfit">
+
+                    <button class="wishlist-btn">♡</button>
+                </div>
+
+                <div class="product-info">
+                   <p class="product-category">Collection</p>
+                   <h3>Latest Clothing Collection</h3>
+                   <p class="product-price">Rs. 6,999</p>
+                  
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Why Choose Us -->
+<section class="why-us-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-subtitle">WHY MN CLOTHING</p>
+            <h2>Shopping Made Better</h2>
+        </div>
+
+        <div class="features-grid">
+
+            <!-- Feature 1 -->
+            <div class="feature-item">
+                <div class="feature-icon">✦</div>
+
+                <h3>Premium Quality</h3>
+
+                <p>
+                    Carefully selected fabrics and quality clothing
+                    designed for comfort and style.
+                </p>
+            </div>
+
+
+            <!-- Feature 2 -->
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+
+                <h3>Fast Delivery</h3>
+
+                <p>
+                    Get your favorite fashion delivered quickly
+                    and safely to your doorstep.
+                </p>
+            </div>
+
+
+            <!-- Feature 3 -->
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+
+                <h3>Secure Payment</h3>
+
+                <p>
+                    Your payment information is protected with
+                    secure and reliable checkout.
+                </p>
+            </div>
+
+
+            <!-- Feature 4 -->
+            <div class="feature-item">
+                <div class="feature-icon">↩</div>
+
+                <h3>Easy Returns</h3>
+
+                <p>
+                    Shop with confidence with our simple and
+                    customer-friendly return process.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+```html
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+
+    <div class="newsletter-content">
+
+        <p class="section-subtitle">STAY IN STYLE</p>
+
+        <h2>Get 10% Off Your First Order</h2>
+
+        <p>
+            Subscribe to our newsletter and be the first to know
+            about new arrivals, exclusive offers and latest trends.
+        </p>
+
+        <form class="newsletter-form" id="newsletterForm">
+
+            <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">SUBSCRIBE</button>
+
+        </form>
+
+        <p id="newsletterMessage"></p>
+
+    </div>
+
+</section>
+<!-- Footer -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-column">
+
+            <h3 class="footer-logo">MN CLOTHING</h3>
+
+            <p>
+                Timeless fashion designed for your everyday style.
+                Discover quality clothing made for you.
+            </p>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-column">
+
+            <h4>QUICK LINKS</h4>
+
+            <a href="index.html">Home</a>
+            <a href="index.html#women-products">Women</a>
+            <a href="index.html#women-products">Men</a>
+            <a href="index.html#women-products">New Arrivals</a>
+            <a href="index.html#women-products">Sale</a>
+
+        </div>
+
+        <!-- Customer Service -->
+        <div class="footer-column">
+
+            <h4>CUSTOMER SERVICE</h4>
+
+            <a href="contact.html">Contact Us</a>
+            <a href="shipping.html">Shipping Information</a>
+            <a href="returns.html">Returns & Exchanges</a>
+            <a href="faqs.html">FAQs</a>
+
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-column">
+
+            <h4>CONTACT</h4>
+
+            <p>📍 Islamabad, Pakistan</p>
+            <p>📧 support@mnclothing.com</p>
+            <p>📞 +92 0000000000</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 MN Clothing. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
