@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MN Clothing</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h2 class="footer-logo">MN CLOTHING</h2>
+            <a href="index.html">Home</a>
+        </div>
+    </header>
+
+    <section class="container" style="padding: 60px 20px; max-width: 800px; margin: auto;">
+
+        <h1>Contact Us</h1>
+
+        <p>We would love to hear from you!</p>
+
+        <p><strong>Email:</strong> support@mnclothing.com</p>
+        <p><strong>Phone:</strong> +92 00000000000</p>
+        <p><strong>Location:</strong> Islamabad, Pakistan</p>
+
+        <h2>Send Us a Message</h2>
+
+        <form id="contactForm">
+
+            <input type="text" placeholder="Your Name" required
+                style="width:100%; padding:12px; margin:10px 0;">
+
+            <input type="email" placeholder="Your Email" required
+                style="width:100%; padding:12px; margin:10px 0;">
+
+            <textarea placeholder="Your Message" required
+                style="width:100%; padding:12px; margin:10px 0; height:120px;"></textarea>
+
+            <button type="submit">SEND MESSAGE</button>
+
+        </form>
+
+        <p id="contactMessage"></p>
+
+    </section>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            document.getElementById("contactMessage").textContent =
+                "Thank you! Your message has been received.";
+
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
