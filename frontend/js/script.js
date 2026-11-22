@@ -1,11 +1,9 @@
+
 // ================================
 // PRODUCT DETAILS FUNCTIONALITY
 // ================================
 
 // ---------- SIZE SELECTION ----------
-
-
- // ---------- SIZE SELECTION ----------
 
 const sizeButtons = document.querySelectorAll(".size-options button");
 
@@ -33,19 +31,14 @@ let quantity = 1;
 
 // Plus button
 if (plusButton) {
-
     plusButton.addEventListener("click", function () {
-
         quantity++;
-
         quantityDisplay.textContent = quantity;
-
     });
-
 }
 
 
- // Minus button
+// Minus button
 if (minusButton) {
     minusButton.addEventListener("click", function () {
         if (quantity > 1) {
@@ -54,6 +47,7 @@ if (minusButton) {
         }
     });
 }
+
 
 // Add to Cart button
 const addToCartButton = document.getElementById("addToCartBtn");
@@ -92,7 +86,7 @@ if (addToCartButton) {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/api/cart", {
+            const response = await fetch("https://mn-clothing-backend.vercel.app/api/cart", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -142,10 +136,9 @@ if (addToCartButton) {
 }
 
 
-
- // ================================
- // DISPLAY CART FROM BACKEND
- // ================================
+// ================================
+// DISPLAY CART FROM BACKEND
+// ================================
 
 const cartItemsContainer = document.getElementById("cartItems");
 const cartSubtotal = document.getElementById("cartSubtotal");
@@ -214,7 +207,7 @@ if (cartItemsContainer) {
         cartItemsContainer.innerHTML = "<p>Loading cart...</p>";
 
         try {
-            const response = await fetch("http://localhost:5000/api/cart");
+            const response = await fetch("https://mn-clothing-backend.vercel.app/api/cart");
 
             if (!response.ok) {
                 throw new Error("Could not load cart");
@@ -240,7 +233,7 @@ if (cartItemsContainer) {
 
         try {
             const response = await fetch(
-                `http://localhost:5000/api/cart/${product.productId}/${encodeURIComponent(product.size)}`,
+                `https://mn-clothing-backend.vercel.app/api/cart/${product.productId}/${encodeURIComponent(product.size)}`,
                 {
                     method: "PATCH",
                     headers: { "Content-Type": "application/json" },
@@ -267,7 +260,7 @@ if (cartItemsContainer) {
 
         try {
             const response = await fetch(
-                `http://localhost:5000/api/cart/${product.productId}/${encodeURIComponent(product.size)}`,
+                `https://mn-clothing-backend.vercel.app/api/cart/${product.productId}/${encodeURIComponent(product.size)}`,
                 { method: "DELETE" }
             );
 
@@ -286,6 +279,7 @@ if (cartItemsContainer) {
 
     loadCart();
 }
+
 
 // ================================
 // CART COUNT
@@ -306,15 +300,15 @@ function updateCartCount() {
     let totalQuantity = 0;
 
     cart.forEach(function(product) {
-
         totalQuantity += Number(product.quantity);
-
     });
 
     cartCountElement.textContent = totalQuantity;
 }
 
 updateCartCount();
+
+
 // ================================
 // DYNAMIC PRODUCT DETAILS
 // ================================
@@ -353,14 +347,11 @@ const products = {
 
 
 // Get product number from URL
-
 const params = new URLSearchParams(window.location.search);
-
 const productId = params.get("product");
 
 
 // Change product details
-
 if (productId && products[productId]) {
 
     const selectedProduct = products[productId];
@@ -370,29 +361,26 @@ if (productId && products[productId]) {
     const price = document.getElementById("productPrice");
     const category = document.getElementById("productCategory");
 
-
     if (image) {
         image.src = selectedProduct.image;
         image.alt = selectedProduct.name;
     }
 
-
     if (name) {
         name.textContent = selectedProduct.name;
     }
-
 
     if (price) {
         price.textContent =
             "Rs. " + selectedProduct.price.toLocaleString();
     }
 
-
     if (category) {
         category.textContent = selectedProduct.category;
     }
 
 }
+
 
 // ================================
 // CATEGORY FILTERING
@@ -423,27 +411,22 @@ categoryCards.forEach(function(card) {
                 (productCategory === "Women" ||
                  productCategory === "Traditional Wear")
             ) {
-
                 productCard.style.display = "";
 
             } else if (
                 categoryName === "Men" &&
                 productCategory === "Men"
             ) {
-
                 productCard.style.display = "";
 
             } else if (
                 categoryName === "New Arrivals" &&
                 productCategory === "Collection"
             ) {
-
                 productCard.style.display = "";
 
             } else {
-
                 productCard.style.display = "none";
-
             }
 
         });
@@ -451,6 +434,8 @@ categoryCards.forEach(function(card) {
     });
 
 });
+
+
 // ---------- NAVBAR MEN ----------
 
 const navMen = document.getElementById("navMen");
@@ -473,13 +458,9 @@ if (navMen) {
                     .trim();
 
             if (productCategory === "Men") {
-
                 productCard.style.display = "";
-
             } else {
-
                 productCard.style.display = "none";
-
             }
 
         });
@@ -493,6 +474,8 @@ if (navMen) {
     });
 
 }
+
+
 // ---------- NAVBAR NEW ARRIVALS ----------
 
 const navNewArrivals =
@@ -516,13 +499,9 @@ if (navNewArrivals) {
                     .trim();
 
             if (productCategory === "Collection") {
-
                 productCard.style.display = "";
-
             } else {
-
                 productCard.style.display = "none";
-
             }
 
         });
@@ -536,6 +515,8 @@ if (navNewArrivals) {
     });
 
 }
+
+
 // ---------- NAVBAR WOMEN ----------
 
 const navWomen =
@@ -562,13 +543,9 @@ if (navWomen) {
                 productCategory === "Women" ||
                 productCategory === "Traditional Wear"
             ) {
-
                 productCard.style.display = "";
-
             } else {
-
                 productCard.style.display = "none";
-
             }
 
         });
@@ -582,6 +559,8 @@ if (navWomen) {
     });
 
 }
+
+
 // ================================
 // CHECKOUT BUTTON
 // ================================
@@ -599,9 +578,7 @@ if (checkoutButton) {
             ) || [];
 
         if (cart.length === 0) {
-
             alert("Your cart is empty.");
-
             return;
         }
 
@@ -610,6 +587,7 @@ if (checkoutButton) {
     });
 
 }
+
 
 /* ================================
    CHECKOUT SUMMARY
@@ -622,7 +600,7 @@ async function loadCheckoutSummary() {
     if (!checkoutItems || !checkoutTotal) return;
 
     try {
-        const response = await fetch("http://localhost:5000/api/cart");
+        const response = await fetch("https://mn-clothing-backend.vercel.app/api/cart");
         const items = await response.json();
 
         if (!response.ok) {
@@ -718,7 +696,7 @@ if (checkoutForm) {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/orders", {
+            const response = await fetch("https://mn-clothing-backend.vercel.app/api/orders", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -810,10 +788,10 @@ wishlistButtons.forEach(function(button, index) {
 
         const price = Number(priceText);
 
-       const image =
-    productCard
-        .querySelector(".product-image img")
-        .src;
+        const image =
+            productCard
+                .querySelector(".product-image img")
+                .src;
 
         let wishlist =
             JSON.parse(
@@ -822,22 +800,17 @@ wishlistButtons.forEach(function(button, index) {
 
         const existingProduct =
             wishlist.find(function(item) {
-
                 return item.name === name;
-
             });
 
         if (existingProduct) {
 
             wishlist =
                 wishlist.filter(function(item) {
-
                     return item.name !== name;
-
                 });
 
             button.textContent = "♡";
-
             alert("Removed from wishlist.");
 
         } else {
@@ -849,7 +822,6 @@ wishlistButtons.forEach(function(button, index) {
             });
 
             button.textContent = "♥";
-
             alert("Added to wishlist!");
 
         }
@@ -862,6 +834,8 @@ wishlistButtons.forEach(function(button, index) {
     });
 
 });
+
+
 // ================================
 // DISPLAY WISHLIST
 // ================================
@@ -893,20 +867,15 @@ if (wishlistItems) {
         wishlist.forEach(function(product) {
 
             wishlistItems.innerHTML += `
-
                 <div class="product-card">
-
                     <div class="product-image">
-
                         <img
                             src="${product.image}"
                             alt="${product.name}"
                         >
-
                     </div>
 
                     <div class="product-info">
-
                         <h3>
                             ${product.name}
                         </h3>
@@ -914,11 +883,8 @@ if (wishlistItems) {
                         <p class="product-price">
                             Rs. ${product.price.toLocaleString()}
                         </p>
-
                     </div>
-
                 </div>
-
             `;
 
         });
@@ -926,6 +892,8 @@ if (wishlistItems) {
     }
 
 }
+
+
 // ================================
 // SEARCH FUNCTIONALITY
 // ================================
@@ -961,16 +929,12 @@ if (searchButton) {
 
 
         // CLOSE SEARCH
-
         closeButton.addEventListener("click", function () {
-
             searchBox.remove();
-
         });
 
 
         // SEARCH
-
         input.addEventListener("input", function () {
 
             const searchText =
@@ -980,7 +944,6 @@ if (searchButton) {
                 document.querySelectorAll(
                     "#women-products .product-card"
                 );
-
 
             productCards.forEach(function (card) {
 
@@ -994,18 +957,13 @@ if (searchButton) {
                         .textContent
                         .toLowerCase();
 
-
                 if (
                     name.includes(searchText) ||
                     category.includes(searchText)
                 ) {
-
                     card.style.display = "";
-
                 } else {
-
                     card.style.display = "none";
-
                 }
 
             });
@@ -1014,7 +972,6 @@ if (searchButton) {
 
 
         // ENTER KEY
-
         input.addEventListener("keydown", function (event) {
 
             if (event.key === "Enter") {
@@ -1036,9 +993,11 @@ if (searchButton) {
     });
 
 }
+
+
 // TEST BACKEND CONNECTION
 
-fetch("http://localhost:5000/api/products")
+fetch("https://mn-clothing-backend.vercel.app/api/products")
     .then(response => response.json())
     .then(data => {
         console.log("Products received from backend:", data);
@@ -1046,9 +1005,11 @@ fetch("http://localhost:5000/api/products")
     .catch(error => {
         console.error("Backend connection error:", error);
     });
-    // LOAD PRODUCTS FROM BACKEND
 
-fetch("http://localhost:5000/api/products")
+
+// LOAD PRODUCTS FROM BACKEND
+
+fetch("https://mn-clothing-backend.vercel.app/api/products")
     .then(response => response.json())
     .then(productsFromBackend => {
 
@@ -1087,7 +1048,9 @@ fetch("http://localhost:5000/api/products")
     .catch(error => {
         console.error("Could not load products from backend:", error);
     });
-    // NEWSLETTER SUBSCRIPTION
+
+
+// NEWSLETTER SUBSCRIPTION
 
 const newsletterForm = document.getElementById("newsletterForm");
 
@@ -1103,7 +1066,7 @@ if (newsletterForm) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/newsletter", {
+            const response = await fetch("https://mn-clothing-backend.vercel.app/api/newsletter", {
                 method: "POST",
 
                 headers: {
