@@ -279,13 +279,42 @@ app.post("/api/newsletter", async (req, res) => {
 });
 
 
-        app.listen(PORT, () => {
-            console.log(`Server running on http://localhost:${PORT}`);
-        });
-
-    } catch (error) {
+           } catch (error) {
         console.error("MongoDB connection failed:", error);
+        throw error;
     }
 }
 
-startServer();
+let serverReady;
+
+const handler = async (req, res) => {
+    try {
+        if (!serverReady) {
+            serverReady = startServer();
+        }
+
+        await serverReady;
+        return app(req, res);
+
+    } catch (error) {
+        console.error("Server initialization failed:", error);
+
+        return res.status(500).json({
+            message: "Server initialization failed"
+        });
+    }
+};
+
+if (require.main === module) {
+    startServer()
+        .then(() => {
+            app.listen(PORT, () => {
+                console.log(`Server running on http://localhost:${PORT}`);
+            });
+        })
+        .catch((error) => {
+            console.error("Server startup failed:", error);
+        });
+}
+
+module.exports = handler;
